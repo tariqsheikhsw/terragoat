@@ -15,6 +15,7 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "web" {
+  ebs_optimized = true
   monitoring = true
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
